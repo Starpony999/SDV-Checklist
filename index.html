@@ -8,19 +8,45 @@
 </head>
 <body>
   <header class="topbar">
-    <button id="cloud">☁</button><button id="sun">☀</button><button id="close">☓</button>
-    <h1>The Unofficial Stardew Valley Expanded Wiki Checklist</h1>
-    <div class="progress-wrap"><div id="progressBar"></div><span id="progressText">0%</span></div>
-    <section class="controls"><label><input type="checkbox" id="stickyToggle"> Sticky Nav</label><label>Box Width <input type="range" id="widthRange" min="900" max="1500" value="1180"></label><label>Theme <select id="themeSelect"><option value="dark">Moonlight</option><option value="light">Sunny</option></select></label></section>
+    <h1>Stardew Valley Expanded Shipping Checklist</h1>
+    <div class="progress-wrap" aria-label="Checklist progress">
+      <div id="progressBar"></div><span id="progressText">0%</span>
+    </div>
+    <section class="controls" aria-label="Display controls">
+      <label><input type="checkbox" id="stickyToggle"> Sticky Nav</label>
+      <label>Box Width <input type="range" id="widthRange" min="900" max="1500" value="1180"></label>
+      <label>Theme <select id="themeSelect"><option value="dark">Moonlight</option><option value="light">Sunny</option></select></label>
+    </section>
   </header>
-  <nav class="side" id="sideNav"><a>🏠 Home</a><a>📋 Checklist Pages</a><a>🌾 Stardew Pages</a><a>🔎 Search</a><a onclick="window.print()">🖨 Print</a><h2>Perfection Checklist Pages</h2><div class="pills"><span>Achievements</span><span>Bundles</span><span>Cooking Recipe</span><span>Crafting</span><span>Fishing</span><span>Museum</span><span class="active">Shipping</span><span>Stardrop</span></div><h2>Official Pages</h2><a href="https://www.stardewvalley.net/">SDV Home</a><a href="https://stardewvalleywiki.com/Shipping">SDV Wiki Shipping</a><a href="https://stardew-valley-expanded.fandom.com/wiki/Shipping">SVE Wiki Shipping</a></nav>
+  <nav class="side" id="sideNav" aria-label="Page links">
+    <a href="https://stardew-valley-expanded.fandom.com/wiki/Shipping">SVE Shipping Source</a>
+    <a href="https://stardew-valley-expanded.fandom.com/wiki/Category:Items">SVE Items</a>
+    <a onclick="window.print()">Print</a>
+    <h2>Checklist Pages</h2>
+    <div class="pills"><span class="active">Shipping</span></div>
+  </nav>
   <main class="page" id="page">
-    <section class="hero"><h2>Shipping Checklist</h2><p>Sourced from: <a href="https://stardew-valley-expanded.fandom.com/wiki/Shipping">Stardew Valley Expanded Wiki — Shipping</a></p><p>Recreated in the spirit of destructiveburn.com's Stardew Valley checklist: local saves, searchable rows, spoiler hiding, checked-row filtering, and table counters.</p></section>
-    <section class="stats"><div><strong id="remaining">0</strong><span>Remaining</span></div><div><strong id="complete">0</strong><span>Completed</span></div><div><strong id="total">0</strong><span>Total</span></div></section>
-    <section class="toolbar"><input id="search" placeholder="Search Shipping?"><label><input id="checkedRows" type="checkbox"> Checked Rows</label><label><input id="spoilers" type="checkbox"> Spoilers</label><button id="toggleAll">Check/Uncheck All</button><label><input id="saveToggle" type="checkbox" checked> Toggle Save</label></section>
-    <table><thead><tr><th>Save?</th><th>Image</th><th>Name</th><th>Ship Amount</th><th>Category</th></tr></thead><tbody id="rows"></tbody></table>
+    <section class="hero">
+      <h2>Items Shipped</h2>
+      <p>This page uses only the item information from the <a href="https://stardew-valley-expanded.fandom.com/wiki/Shipping">Stardew Valley Expanded Wiki shipping page</a>. Item art is loaded from source wiki file URLs.</p>
+    </section>
+    <section class="stats" aria-label="Checklist totals">
+      <div><strong id="remaining">0</strong><span>Remaining</span></div>
+      <div><strong id="complete">0</strong><span>Completed</span></div>
+      <div><strong id="total">0</strong><span>Total</span></div>
+    </section>
+    <section class="toolbar" aria-label="Checklist filters">
+      <input id="search" placeholder="Search SVE shipping items">
+      <label><input id="checkedRows" type="checkbox"> Checked Rows</label>
+      <button id="toggleAll">Check/Uncheck All</button>
+      <label><input id="saveToggle" type="checkbox" checked> Local Save</label>
+    </section>
+    <table>
+      <thead><tr><th>Save?</th><th>Image</th><th>Name</th><th>Ship Amount</th><th>Source</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
   </main>
-  <button class="up" onclick="scrollTo(0,0)">↑</button>
+  <button class="up" onclick="scrollTo(0,0)" aria-label="Back to top">↑</button>
 <script src="script.js"></script>
 </body>
 </html>
