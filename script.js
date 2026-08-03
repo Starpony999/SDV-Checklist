@@ -181,7 +181,8 @@ const items = checklist.items.map((name, index) => ({
   name,
   image: fileUrl(name),
   page: itemPage(name),
-  source: checklist.sources?.[name]
+  source: checklist.sources?.[name],
+  ingredients: checklist.ingredients?.[name]
 }));
 
 function render() {
@@ -193,10 +194,22 @@ function render() {
       if (checkedRows.checked && !saved[item.id]) return;
       const tr = document.createElement('tr');
       tr.className = saved[item.id] ? 'done' : '';
-      const progressCell = item.source || (saved[item.id] ? 1 : 0);
-      const wikiCell = item.source ? '' : `<td><a href="${item.page}">${checklist.sourceLabel}</a></td>`;
-      tr.innerHTML = `<td><input type="checkbox" ${saved[item.id] ? 'checked' : ''} data-id="${item.id}"></td><td><img class="icon" src="${item.image}" alt="${item.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode('Image unavailable'))"></td><td>${item.name}</td><td>${progressCell}</td>${wikiCell}`;
-      rows.appendChild(tr);
+      tr.innerHTML = `
+  <td>
+    <input type="checkbox" ${saved[item.id] ? 'checked' : ''} data-id="${item.id}">
+  </td>
+  <td>
+    <img class="icon"
+         src="${item.image}"
+         alt="${item.name}"
+         loading="lazy"
+         referrerpolicy="no-referrer"
+         onerror="this.replaceWith(document.createTextNode('Image unavailable'))">
+  </td>
+  <td>${item.name}</td>
+  <td>${item.source}</td>
+  <td>${item.ingredients ?? ''}</td>
+`;  rows.appendChild(tr);
     });
   updateStats();
 }
