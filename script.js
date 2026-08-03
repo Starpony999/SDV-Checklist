@@ -61,7 +61,7 @@ const checklistData = {
     storageKey: 'sve-recipes-checklist',
     idPrefix: 'sve-recipe',
     sourceLabel: 'Recipe Wiki',
-    completedLabel: 'Collected',
+    completedLabel: 'Source',
     items: [
       'Baked Berry Oatmeal',
       'Baked Potato',
@@ -89,7 +89,35 @@ const checklistData = {
       'Vegan Cone',
       'Void Delight',
       'Void Salmon Sushi'
-    ]
+    ],
+    sources: {
+      'Baked Berry Oatmeal': 'Bear Shop',
+      'Baked Potato': 'Gunther Mail 3+ Hearts',
+      'Big Bark Burger': 'Stardrop Saloon',
+      'Birch Syrup': 'Pierre’s Shop',
+      'Candy': 'Stardrop Saloon',
+      'Cheese Charcuterie': 'Scarlett Mail 3+ Hearts',
+      'Chocolate Truffle Bar': 'Traveling Merchant @ Festival of Ice',
+      'Fish Dumpling': 'Olivia Mail 3+ Hearts',
+      'Flower Cookie': 'Bear Shop',
+      'Frog Legs': 'Adventurer’s Guild',
+      'Gingerbread Man': 'Susan Mail Winter',
+      'Glazed Butterfish': 'Stardrop Saloon',
+      'Glazed Pear': 'Morgan Mail 3+ Hearts',
+      'Grilled Cheese Sandwich': 'Martin Mail 3+ Hearts',
+      'Ice Cream Sundae': 'Pierre @ Luau',
+      'Mixed Berry Pie': 'Stardrop Saloon',
+      'Mushroom Berry Rice': 'Adventurer’s Guild',
+      'Nectarine Fruit Bread': 'Claire Mail 3+ Hearts',
+      'Pineapple Custard Crepe': 'Lance Mail 3+ Hearts',
+      'Prismatic Pop': 'Stardew Valley Fair',
+      'Ramen': 'Victor Mail 3+ Hearts',
+      'Seaweed Salad': 'Willy’s Shop',
+      'Stuffed Persimmon': 'Andy Mail 3+ Hearts',
+      'Vegan Cone': 'Oasis',
+      'Void Delight': 'Krobus Shop',
+      'Void Salmon Sushi': 'Krobus Shop'
+    }
   }
 };
 
@@ -100,7 +128,13 @@ const itemPage = name => `https://stardew-valley-expanded.fandom.com/wiki/${enco
 const fileUrl = name => `https://stardew-valley-expanded.fandom.com/wiki/Special:Redirect/file/${encodeFile(name)}`;
 const saved = JSON.parse(localStorage.getItem(checklist.storageKey) || '{}');
 const rows = document.getElementById('rows');
-const items = checklist.items.map((name, index) => ({ id: `${checklist.idPrefix}-${index}`, name, image: fileUrl(name), page: itemPage(name) }));
+const items = checklist.items.map((name, index) => ({
+  id: `${checklist.idPrefix}-${index}`,
+  name,
+  image: fileUrl(name),
+  page: itemPage(name),
+  source: checklist.sources?.[name]
+}));
 
 function render() {
   const query = search.value.toLowerCase();
@@ -111,7 +145,9 @@ function render() {
       if (checkedRows.checked && !saved[item.id]) return;
       const tr = document.createElement('tr');
       tr.className = saved[item.id] ? 'done' : '';
-      tr.innerHTML = `<td><input type="checkbox" ${saved[item.id] ? 'checked' : ''} data-id="${item.id}"></td><td><img class="icon" src="${item.image}" alt="${item.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode('Image unavailable'))"></td><td>${item.name}</td><td>${saved[item.id] ? 1 : 0}</td><td><a href="${item.page}">${checklist.sourceLabel}</a></td>`;
+      const progressCell = item.source || (saved[item.id] ? 1 : 0);
+      const wikiCell = item.source ? '' : `<td><a href="${item.page}">${checklist.sourceLabel}</a></td>`;
+      tr.innerHTML = `<td><input type="checkbox" ${saved[item.id] ? 'checked' : ''} data-id="${item.id}"></td><td><img class="icon" src="${item.image}" alt="${item.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode('Image unavailable'))"></td><td>${item.name}</td><td>${progressCell}</td>${wikiCell}`;
       rows.appendChild(tr);
     });
   updateStats();

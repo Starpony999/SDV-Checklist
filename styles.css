@@ -254,3 +254,48 @@ tr.done { opacity: .55; }
   th:nth-child(5),
   td:nth-child(5) { display: none; }
 }
+
+.home-page {
+  max-width: 900px;
+}
+
+.home-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.home-card {
+  display: block;
+  min-height: 150px;
+  padding: 24px;
+  color: var(--text);
+  text-decoration: none;
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px var(--shadow);
+  transition: transform .2s, border-color .2s;
+}
+
+.home-card:hover,
+.home-card:focus {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.home-card strong,
+.home-card span {
+  display: block;
+}
+
+.home-card strong {
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 1.35rem;
+}
+
+.home-card span {
+  color: var(--muted);
+}
