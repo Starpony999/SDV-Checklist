@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stardew Valley Expanded Crafting Checklist</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Stardew Valley Expanded Crafting Checklist</h1>
+    <div class="progress-wrap" aria-label="Checklist progress">
+      <div id="progressBar"></div><span id="progressText">0%</span>
+    </div>
+    <section class="controls" aria-label="Display controls">
+      <label><input type="checkbox" id="stickyToggle"> Sticky Nav</label>
+      <label>Box Width <input type="range" id="widthRange" min="900" max="1500" value="1180"></label>
+      <label>Theme <select id="themeSelect"><option value="dark">Moonlight</option><option value="light">Sunny</option></select></label>
+    </section>
+  </header>
+  <nav class="side" id="sideNav" aria-label="Page links">
+    <a href="https://stardew-valley-expanded.fandom.com/wiki/Recipes">SVE Recipes Source</a>
+    <a href="https://stardew-valley-expanded.fandom.com/wiki/Shipping">SVE Shipping Source</a>
+    <a href="https://stardewvalleyexpanded.wiki.gg/wiki/Crafting">SVE Crafting Source</a>
+    <a href="https://stardew-valley-expanded.fandom.com/wiki/Category:Items">SVE Items</a>
+    <a onclick="window.print()">Print</a>
+    <h2>Checklist Pages</h2>
+    <div class="pills"><a href="index.html">Home</a><a href="shipping.html">Shipping</a><a href="recipes.html">Recipes</a>
+      <span class="active">Crafting</span></div>
+  </nav>
+  <main class="page" id="page" data-checklist="crafting">
+    <section class="hero">
+      <h2>Crafting Recipes</h2>
+    </section>
+    <section class="stats" aria-label="Checklist totals">
+      <div><strong id="remaining">0</strong><span>Remaining</span></div>
+      <div><strong id="complete">0</strong><span>Completed</span></div>
+      <div><strong id="total">0</strong><span>Total</span></div>
+    </section>
+    <section class="toolbar" aria-label="Checklist filters">
+      <input id="search" placeholder="Search SVE crafting recipes">
+      <label><input id="checkedRows" type="checkbox"> Checked Rows</label>
+      <button id="toggleAll">Check/Uncheck All</button>
+      <label><input id="saveToggle" type="checkbox" checked> Local Save</label>
+    </section>
+    <table>
+      <thead><tr><th>Save?</th><th>Image</th><th>Name</th><th>Source</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </main>
+  <button class="up" onclick="scrollTo(0,0)" aria-label="Back to top">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
