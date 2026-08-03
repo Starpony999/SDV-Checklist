@@ -118,6 +118,54 @@ const checklistData = {
       'Void Delight': 'Krobus Shop',
       'Void Salmon Sushi': 'Krobus Shop'
     }
+  },
+    crafting: {
+    storageKey: 'sve-crafting-checklist',
+    idPrefix: 'sve-crafting',
+    sourceLabel: 'Crafting Wiki',
+    completedLabel: 'Source',
+    items: [
+      'Armor Elixir',
+      'Bombardier Elixir',
+      'Haste Elixir',
+      'Hero Elixir',
+      'Marsh Tonic',
+      'Seed Cookie',
+      'Hedge Fence',
+      'Small Hardwood Fence',
+      'Butter Churner',
+      'Yarn Spooler',
+      'Sun Totem',
+      'Wind Totem'
+    ],
+    sources: {
+      'Armor Elixir': 'Combat Level 7',
+      'Bombardier Elixir': 'Combat Level 9',
+      'Haste Elixir': 'Combat Level 8',
+      'Hero Elixir': 'Combat Level 9',
+      'Marsh Tonic': 'Henchman 4 Hearts',
+      'Seed Cookie': 'Foraging Level 3',
+      'Hedge Fence': 'Farming Level 6',
+      'Small Hardwood Fence': 'Default',
+      'Butter Churner': 'Farming Level 3',
+      'Yarn Spooler': 'Farming Level 9',
+      'Sun Totem': 'Foraging Level 9',
+      'Wind Totem': 'Foraging Level 9'
+    },
+    ingredients: {
+      'Armor Elixir': 'Solar Essence (50), Void Soul (5), Bone Fragment (30), Vinegar (1)',
+      'Bombardier Elixir': 'Solar Essence (30), Void Essence  (30), Void Soul (10), Void Pebble (20), Bomb  (5)',
+      'Haste Elixir': 'Void Essence (50), Void Soul (5), Spicy Eel (3), Sugar  (1)',
+      'Hero Elixir': 'Slime (50), Void Soul (5), Void Pebble (10), Oil  (1)',
+      'Marsh Tonic': 'Slime (30), Swamp Essence (15), Swamp Flower (10), Sugar (1)',
+      'Seed Cookie': 'Birch Seed (1), Fir Cone (1), Acorn (1), Maple Seed (1), Pine Cone (1)',
+      'Hedge Fence': 'Fiber (3), Wood (1)',
+      'Small Hardwood Fence': 'Hardwood (1)',
+      'Butter Churner': 'Wood (25), Stone (25), Frozen Tear (1), Iron Bar (1)',
+      'Yarn Spooler': 'Hardwood (25), Battery Pack (1), Fir Wax (1), Pine Tar (1)',
+      'Sun Totem': 'Hardwood (1), Solar Essence (10), Birch Water (1)',
+      'Wind Totem': 'Hardwood (1), Bat Wing (10), Fir Wax (1)'
+    }
   }
 };
 
