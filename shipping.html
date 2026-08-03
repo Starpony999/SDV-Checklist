@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stardew Valley Expanded Recipes Checklist</title>
+  <title>Stardew Valley Expanded Checklist</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar">
-    <h1>Stardew Valley Expanded Recipes Checklist</h1>
+    <h1>Stardew Valley Expanded Shipping Checklist</h1>
     <div class="progress-wrap" aria-label="Checklist progress">
       <div id="progressBar"></div><span id="progressText">0%</span>
     </div>
@@ -19,17 +19,17 @@
     </section>
   </header>
   <nav class="side" id="sideNav" aria-label="Page links">
-    <a href="https://stardew-valley-expanded.fandom.com/wiki/Recipes">SVE Recipes Source</a>
     <a href="https://stardew-valley-expanded.fandom.com/wiki/Shipping">SVE Shipping Source</a>
     <a href="https://stardew-valley-expanded.fandom.com/wiki/Category:Items">SVE Items</a>
+    <a href="https://stardew-valley-expanded.fandom.com/wiki/Recipes">SVE Recipes Source</a>
     <a onclick="window.print()">Print</a>
     <h2>Checklist Pages</h2>
-    <div class="pills"><a href="index.html">Home</a><a href="shipping.html">Shipping</a><span class="active">Recipes</span></div>
+    <div class="pills"><a href="index.html">Home</a><span class="active">Shipping</span><a href="recipes.html">Recipes</a></div>
   </nav>
-  <main class="page" id="page" data-checklist="recipes">
+  <main class="page" id="page" data-checklist="shipping">
     <section class="hero">
-      <h2>Recipes</h2>
-      <p>This page tracks Stardew Valley Expanded recipe items from the <a href="https://stardew-valley-expanded.fandom.com/wiki/Recipes">Stardew Valley Expanded Wiki recipes page</a>. Item art is loaded from source wiki file URLs.</p>
+      <h2>Items Shipped</h2>
+      <p>This page uses only the item information from the <a href="https://stardew-valley-expanded.fandom.com/wiki/Shipping">Stardew Valley Expanded Wiki shipping page</a>. Item art is loaded from source wiki file URLs.</p>
     </section>
     <section class="stats" aria-label="Checklist totals">
       <div><strong id="remaining">0</strong><span>Remaining</span></div>
@@ -37,13 +37,13 @@
       <div><strong id="total">0</strong><span>Total</span></div>
     </section>
     <section class="toolbar" aria-label="Checklist filters">
-      <input id="search" placeholder="Search SVE recipes">
+      <input id="search" placeholder="Search SVE shipping items">
       <label><input id="checkedRows" type="checkbox"> Checked Rows</label>
       <button id="toggleAll">Check/Uncheck All</button>
       <label><input id="saveToggle" type="checkbox" checked> Local Save</label>
     </section>
     <table>
-      <thead><tr><th>Save?</th><th>Image</th><th>Name</th><th>Source</th></tr></thead>
+      <thead><tr><th>Save?</th><th>Image</th><th>Name</th><th>Ship Amount</th><th>Source</th></tr></thead>
       <tbody id="rows"></tbody>
     </table>
   </main>
